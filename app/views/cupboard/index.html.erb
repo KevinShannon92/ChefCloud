@@ -1,0 +1,22 @@
+<% if @cupboard.empty? %>
+<p>You have not added any ingredients yet</p>
+<% end %>
+
+
+
+<div id="ingredientsContainer">
+    <table id="customers">
+        <% @cupboard.each do |id, quantity| %>
+        
+        <% ingredient = Ingredient.find_by_id(id) %>
+        
+        <tr>
+            <td class="title"><%= link_to ingredient.title, ingredient %></td>
+            <td><a href="/cart/remove/<%= item.id %>">Remove From Cupboard</a></td>
+            <td class="quantity"><%= quantity %></td>
+        </tr>
+    </table>
+    <a href="/cupboard/clear"class="button">Clear Cupboard</a>
+</div>
+
+<% end %>  

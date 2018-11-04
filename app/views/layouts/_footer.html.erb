@@ -1,0 +1,6 @@
+<footer class="foot">
+    <% if session[:login] == 1 %>    
+    <%= link_to 'New Recipe', new_recipe_path, :class =>"button", :role=>"button" %>
+    <% end %>
+
+</footer>

@@ -1,0 +1,36 @@
+<% provide(:title, "Recipes") %>
+
+<p id="notice"><%= notice %></p>
+
+ <div id="recipesContainer">
+  
+  <h1>Recipes</h1>
+     
+      <% @recipes.each do |recipe| %>
+      <div class="recipehols">
+       <h1><%= recipe.title %></h1>
+       
+        <%= link_to (image_tag recipe.media_url, :class => "recipeholsIm"), recipe %>
+        <p><%= recipe.description %></p>
+
+       <p>Cooking Time (hh:mm): <%= recipe.prep_time.strftime("%H:%M") %>
+       <br>
+       <p>Cuisine: <%= recipe.cuisine %></p>
+       
+       <p> Meal Type: <%= recipe.meal_type %></p>
+       
+       <p>
+         <%= link_to 'Show',  recipe, :class => "button", :role => "button" %>
+         <% if session[:login] == 1 %> 
+         <%= link_to 'Edit',  edit_recipe_path(recipe), :class => "button", :role => "button" %>
+         <%= link_to 'Destroy',  recipe, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
+         <% end %>
+       </p>
+        
+      </div>
+    <% end %>
+      
+</div>
+
+<br>
+<%= link_to 'New Recipe',  new_recipe_path, :class => "button", :role => "button" %>
