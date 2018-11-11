@@ -18,6 +18,10 @@ class RecipesController < ApplicationController
     @recipes = Recipe.where("title like ? or cuisine like ? or meal_type like ?", st, st, st)
   end
 
+  def feature
+    @recipes = Recipe.all(:order => 'RANDOM()', :limit => 2)
+  end
+  
 
   # GET /recipes/new
   def new

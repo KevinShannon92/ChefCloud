@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get '/cupboard/:id', to: 'cupboard#add'
   get '/cupboard/remove/:id', to: 'cupboard#remove'
   
+  post '/cupboard/setQuantity/:id', to: 'cupboard#setQuantity'
+  
   post '/search' => 'recipes#search'
  
   resources :ingredients, :collection => { :edit_multiple => :post, :update_multiple => :put }

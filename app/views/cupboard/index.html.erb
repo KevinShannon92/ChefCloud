@@ -6,17 +6,23 @@
 
 <div id="ingredientsContainer">
     <table id="customers">
-        <% @cupboard.each do |id, quantity| %>
-        
+    <thead>
+    <tr>
+      <th><%= link_to "Name", :sort => "title" %></th>
+      <th><%= link_to "Quantity", :sort => "ing_type" %></th>
+    </tr>
+  </thead>
+  <tbody>
+       <% @cupboard.each do |id, quantity| %>
         <% ingredient = Ingredient.find_by_id(id) %>
-        
         <tr>
             <td class="title"><%= link_to ingredient.title, ingredient %></td>
-            <td><a href="/cart/remove/<%= item.id %>">Remove From Cupboard</a></td>
-            <td class="quantity"><%= quantity %></td>
+            <td><a href="/cart/remove/<%= ingredient.id %>">Remove From Cupboard</a></td>
         </tr>
+    <% end %> 
+    </tbody>
     </table>
     <a href="/cupboard/clear"class="button">Clear Cupboard</a>
 </div>
 
-<% end %>  
+ 

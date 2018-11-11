@@ -2,9 +2,9 @@ class CupboardController < ApplicationController
   
   def add
     # get the Id of the product
-    @ingredients = Ingredient.where(id: params[:ingredient_ids])
+    id = params[:id]
     
-      # if the cupboard is already been created, use existing cupboard else create a blank cupboard
+      # use existing cupboard if it exists else create a blank cupboard
       if session[:cupboard] then
       cupboard = session[:cupboard]
     else
@@ -29,6 +29,11 @@ class CupboardController < ApplicationController
     redirect_to :action => :index
   end 
   
+  def setQuantity
+    
+  end
+  
+  
   def remove
     
     id = params[:id]
@@ -46,5 +51,28 @@ class CupboardController < ApplicationController
     else
       @cupboard = {}
     end  
+  end
+  
+  def createOrder 
+    # Step 1: Get the current user 
+    @user = User.find(current_user.id) 
+    
+    # Step 2: Create a new order and associate it with the current user 
+    @order = @user.orders.build(:order_date => DateTime.now, :status => 'Pending') 
+    @order.save 
+    
+    # Step 3: For each item in the upboard, create a new ingredient
+    @cupboard = session[:cupboard] || {} # Get the content of the Cupboard
+    @cupboard.each do | id, quantity | ingredient = Ingredient.find_by_id(id) 
+    @orderitem = @order.orderitems.build(:ingredient_id => ingredient.id, :title => ingredient.title)
+    @orderitem.save 
+    end
+    
+    @orders = Order.all
+    
+    @orderitems = Orderitem.where(order_id: Order.last)
+    
+    # session[:cart] =  nil 'Hidden for development'
+    
   end
 end

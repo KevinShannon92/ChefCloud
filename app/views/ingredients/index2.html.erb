@@ -6,30 +6,30 @@
   
   <h1>Ingredients</h1>
   
-
-
+ <% form_tag do %>
 
  <table>
   <thead>
     <tr>
-      <th><%= link_to "Name", :sort => "title" %></th>
-      <th><%= link_to "Type", :sort => "ing_type" %></th>
+      <th>Name</th>
     </tr>
   </thead>
   <tbody>
-    <% @ingredients.each do |ingredient| %>
+    <% for ingredient in @ingredients %>
     <tr>
+      <td><%= check_box_tag "ingredient_ids[]", ingredient.id %></td>
       <td><%= ingredient.title %></td>
-      <td><%= ingredient.ing_type %></td>
-      <td><a href="/cupboard/<%= ingredient.id %>" class="button"> Add To Cupboard</a></td>
       <td><%= link_to "Edit", edit_ingredient_path(ingredient) %></td>
       <td><%= link_to "Destroy", ingredient_path(ingredient), :confirm => "Are you sure?", :method => :delete %></td>
     </tr>
     <% end %>
   </tbody>
  </table>
+ <%= submit_tag "Add to Cupboard" %>
+ <% end %>
 
- 
+
+  <a href="/cupboard" class= "button"> Add to Cupboard</a> 
 </div>
 
 <br>
