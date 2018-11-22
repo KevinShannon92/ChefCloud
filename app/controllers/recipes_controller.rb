@@ -71,6 +71,10 @@ class RecipesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def featured_recipe
+    @recipe = Recipe.order(:title).first
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -80,7 +84,7 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:title, :description, :cuisine, :media_url, :prep_time, :meal_type)
+      params.require(:recipe).permit(:title, :description, :cuisine, :media_url, :prep_time, :meal_type, :cook_time, :cooking_method, :favourite, :rating, :servings, :instructions, :cost, :available)
     end
     
    

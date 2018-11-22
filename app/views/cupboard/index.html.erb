@@ -9,7 +9,8 @@
     <thead>
     <tr>
       <th><%= link_to "Name", :sort => "title" %></th>
-      <th><%= link_to "Quantity", :sort => "ing_type" %></th>
+      <th><%= link_to "Quantity (g/ml)", :sort => "ing_type" %></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -17,12 +18,15 @@
         <% ingredient = Ingredient.find_by_id(id) %>
         <tr>
             <td class="title"><%= link_to ingredient.title, ingredient %></td>
-            <td><a href="/cart/remove/<%= ingredient.id %>">Remove From Cupboard</a></td>
+            <td class="quantity"><%= quantity %></td>
+            <td><a href="/cupboard/remove/<%= ingredient.id %>">Remove From Cupboard</a></td>
         </tr>
     <% end %> 
     </tbody>
     </table>
     <a href="/cupboard/clear"class="button">Clear Cupboard</a>
+    <a href="/recipes"class="button">Find Recipes</a>
+    
 </div>
 
  

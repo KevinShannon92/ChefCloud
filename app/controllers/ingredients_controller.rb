@@ -73,10 +73,3 @@ class IngredientsController < ApplicationController
     end
 end
 
-def edit_multiple
-    @ingredients = Ingredient.find(params[:ingredient_ids])
-end
-  
-def update_multiple
-   
-end

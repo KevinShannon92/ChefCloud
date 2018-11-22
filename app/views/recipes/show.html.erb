@@ -1,3 +1,5 @@
+<% provide(:title, "Recipes") %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -6,29 +8,47 @@
 </p>
 
 <p>
+  <strong>Rating:</strong>
+  <%= @recipe.rating %>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @recipe.description %>
+</p>
+<p>
+  <strong>Instructions:</strong>
+  <%= @recipe.instructions %>
 </p>
 
 <p>
   <strong>Cuisine:</strong>
   <%= @recipe.cuisine %>
 </p>
-
 <p>
-  <strong>Media url:</strong>
-  <%= @recipe.media_url %>
+  <strong>Cooking Method:</strong>
+  <%= @recipe.cooking_method %>
 </p>
 
 <p>
-  <strong>Prep time:</strong>
-  <%= @recipe.prep_time %>
-</p>
-
-<p>
-  <strong>Meal type:</strong>
+  <strong>Meal Type:</strong>
   <%= @recipe.meal_type %>
 </p>
+
+<p>
+  <strong>Prep Time (hh:mm):</strong>
+  <%= @recipe.prep_time.strftime("%H:%M") %>
+</p>
+<p>
+  <strong>Cook Time (hh:mm):</strong>
+  <%= @recipe.cook_time.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>Servings:</strong>
+  <%= @recipe.servings %>
+</p>
+
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>

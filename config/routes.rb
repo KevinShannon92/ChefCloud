@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   resources :recipe_ingredients
   resources :ingredients
   get 'cupboard/index'
@@ -17,8 +18,7 @@ Rails.application.routes.draw do
   get '/cupboard', to: 'cupboard#index'
   get '/cupboard/:id', to: 'cupboard#add'
   get '/cupboard/remove/:id', to: 'cupboard#remove'
-  
-  post '/cupboard/setQuantity/:id', to: 'cupboard#setQuantity'
+
   
   post '/search' => 'recipes#search'
  

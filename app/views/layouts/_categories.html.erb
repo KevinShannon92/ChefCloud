@@ -1,23 +1,16 @@
-<% provide(:title, "Recipes") %>
-
-<p id="notice"><%= notice %></p>
 
  <div id="recipesContainer">
   
-  <h1>Recipes</h1>
+  <h1>Featured Recipes</h1>
      
-      <% @recipes.each do |recipe| %>
+    <% @recipes.sort_by{|t| - t.created_at.to_i}.first(4).each do |recipe| %>
       <div class="recipehols">
        <h1><%= recipe.title %></h1>
-       
-       <p>Rating: <%= recipe.rating %></p>
        
         <%= link_to (image_tag recipe.media_url, :class => "recipeholsIm"), recipe %>
         <p><%= recipe.description %></p>
 
-       <p>Cooking Time (hh:mm): <%= recipe.cook_time.strftime("%H:%M") %>
-       
-       
+       <p>Cooking Time (hh:mm): <%= recipe.prep_time.strftime("%H:%M") %>
        <br>
        <p>Cuisine: <%= recipe.cuisine %></p>
        
@@ -30,14 +23,12 @@
          <%= link_to 'Destroy',  recipe, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
          <% end %>
        </p>
-       
-         <%= link_to 'Edit',  edit_recipe_path(recipe), :class => "button", :role => "button" %>
-         <%= link_to 'Destroy',  recipe, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
         
       </div>
     <% end %>
+
+      
+</div>
       
 </div>
 
-<br>
-<%= link_to 'New Recipe',  new_recipe_path, :class => "button", :role => "button" %>

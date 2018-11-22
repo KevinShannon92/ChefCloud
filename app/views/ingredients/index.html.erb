@@ -22,6 +22,7 @@
       <td><%= ingredient.title %></td>
       <td><%= ingredient.ing_type %></td>
       <td><a href="/cupboard/<%= ingredient.id %>" class="button"> Add To Cupboard</a></td>
+      <td><%= link_to 'Show',  ingredient, :class => "button", :role => "button" %></td>
       <td><%= link_to "Edit", edit_ingredient_path(ingredient) %></td>
       <td><%= link_to "Destroy", ingredient_path(ingredient), :confirm => "Are you sure?", :method => :delete %></td>
     </tr>
