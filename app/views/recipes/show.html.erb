@@ -2,53 +2,90 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<div id="recipe-page">
+  
+
+<div id="recipe-header">
+  <h4>
   <%= @recipe.title %>
+  </h4>
+</div>
+
+
+<div id="page-container">
+
+<div id="recipe-image">
+ <%= image_tag @recipe.media_url %>
+</div>
+
+<br><br />
+
+<div id="recipe-info">
+<p>
+  Rating:
+ <strong> <%= @recipe.rating %></strong>
 </p>
 
 <p>
-  <strong>Rating:</strong>
-  <%= @recipe.rating %>
+  Cuisine:
+  <strong><%= @recipe.cuisine %></strong>
 </p>
+  
+</div>
 
+<div id="recipe-sidebar">
 <p>
-  <strong>Description:</strong>
   <%= @recipe.description %>
 </p>
+</div>
+</div>
+
+<div id="recipe-info">
+<p>
+  Cooking Method:
+  <%= @recipe.cooking_method %>
+</p>
+
+<p>
+   Meal Type:
+  <%= @recipe.meal_type %>
+</p>
+
+<p>
+  Prep Time (hh:mm):
+  <%= @recipe.prep_time.strftime("%H:%M") %>
+</p>
+<p>
+ Cook Time (hh:mm):
+<%= @recipe.cook_time.strftime("%H:%M") %> 
+</p>
+
+<p>
+ Servings:
+ <%= @recipe.servings %>
+</p>
+
+</div>
+
+<div id="recipe-desc">
 <p>
   <strong>Instructions:</strong>
   <%= @recipe.instructions %>
 </p>
 
-<p>
-  <strong>Cuisine:</strong>
-  <%= @recipe.cuisine %>
-</p>
-<p>
-  <strong>Cooking Method:</strong>
-  <%= @recipe.cooking_method %>
-</p>
-
-<p>
-  <strong>Meal Type:</strong>
-  <%= @recipe.meal_type %>
-</p>
-
-<p>
-  <strong>Prep Time (hh:mm):</strong>
-  <%= @recipe.prep_time.strftime("%H:%M") %>
-</p>
-<p>
-  <strong>Cook Time (hh:mm):</strong>
-  <%= @recipe.cook_time.strftime("%H:%M") %>
-</p>
-
-<p>
-  <strong>Servings:</strong>
-  <%= @recipe.servings %>
-</p>
+</div>
+  
 
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+<div id="recipe-footer">
+  <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+  <%= link_to 'Back', recipes_path %>
+</div>
+  
+</div>
+
+
+
+
+
+

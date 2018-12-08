@@ -1,7 +1,7 @@
 <% provide(:title, "Recipes") %>
 
 <p id="notice"><%= notice %></p>
-
+<div id="static">
  <div id="recipesContainer">
   
   <h1>Recipes</h1>
@@ -31,8 +31,7 @@
          <% end %>
        </p>
        
-         <%= link_to 'Edit',  edit_recipe_path(recipe), :class => "button", :role => "button" %>
-         <%= link_to 'Destroy',  recipe, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
+         
         
       </div>
     <% end %>
@@ -41,3 +40,4 @@
 
 <br>
 <%= link_to 'New Recipe',  new_recipe_path, :class => "button", :role => "button" %>
+</div>

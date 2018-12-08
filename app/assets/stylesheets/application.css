@@ -51,6 +51,15 @@ li a {
 
 .welcomeIm {width: 30%;}
 
+#strapline { 
+    color: #ffffff;
+    text-align: center;
+    margin: auto;
+    width:80%;
+    border: 3px solid #b3e0ff;
+    padding: 10px;
+    text-align: center;
+}
 
 .foot {
     min-height: 80px;
@@ -73,14 +82,14 @@ li a {
 #recipesContainer {
     width: 100%;
     text-align: center;
-    
+    color: #00688b;
     
 }
 
 
 #recipesContainer h1 {
    display: block;
-    color: #4CAF50;
+    color: #00688b;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -96,14 +105,16 @@ li a {
     display: inline-block;
     width: 33%;
     padding:10px;
-    min-height: 300px;
-   
+    min-height: 300px;    
+    background:#f0f8ff;
+    border: 2px solid grey;
+    border-radius: 5px;
 }
 
 
 .recipehols h1 {
    display: block;
-    color: #4CAF50;
+    color: #00688b;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -114,7 +125,7 @@ li a {
 
 .recipehols p {
    display: block;
-    color: #4CAF50;
+    color: #00688b;
     text-align: center;
     padding: 2px 12px;
     text-decoration: none;
@@ -158,6 +169,7 @@ li a {
 }
 
 #customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:nth-child(odd){background-color: #e6e6e6;}
 
 #customers tr:hover {background-color: #ddd;}
 
@@ -167,4 +179,71 @@ li a {
     text-align: left;
     background-color: #4CAF50;
     color: white;
+}
+
+#page-container{
+    width: 95%;
+    margin: auto;
+    padding: 10;
+    color: #00688b;
+}
+
+#recipe-page{
+    width: 95%;
+    margin: auto;
+    padding: 10;
+   background-image: url("/assets/Site/Board.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+    color: #00688b;
+}
+
+#recipe-header{
+    padding: 5px 10px; 
+ 
+}
+
+#recipe-image{
+    float:left;
+    border: 2px solid grey;
+}
+
+#recipe-info{
+    
+    float:left;
+    padding: 5px;
+    margin-left: 5%;
+    margin-right: 15%;
+    clear:both;
+}
+
+#recipe-desc{
+    width:50%;
+    float:left;
+    background:#f0f8ff;
+    padding: 5px;
+    margin-right: 10%;
+    border: 2px solid grey;
+    border-radius: 5px;
+}
+
+#recipe-sidebar{
+    background:#f0f8ff;
+    float:left;
+    width:50%;
+    margin-left: 5%;
+    border: 2px solid grey;
+    border-radius: 5px;
+    
+}
+
+#recipe-footer{
+    clear:both;
+}
+
+#static{
+      background: url("/assets/Site/Parchment.jpg");
+      background-repeat:no-repeat;
+      background-size:cover;
+      padding: 1%;
 }
