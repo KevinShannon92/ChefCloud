@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all(:order => 'RANDOM()', :limit => 2)
   end
   
-
+  
   # GET /recipes/new
   def new
     @recipe = Recipe.new

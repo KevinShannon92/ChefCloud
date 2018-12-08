@@ -25,7 +25,6 @@
       <td><a href="/cupboard/<%= ingredient.id %>" class="button"> Add To Cupboard</a></td>
       <td> <%= link_to 'Show',  ingredient, :class => "button", :role => "button" %></td>
       <% if session[:login] == 1 %>   
-      
       <td><%= link_to "Edit", edit_ingredient_path(ingredient) %></td>
       <td><%= link_to "Destroy", ingredient_path(ingredient), :confirm => "Are you sure?", :method => :delete %></td>
       <% end %>
@@ -38,6 +37,7 @@
 </div>
 
 <br>
+<% if session[:login] == 1 %>   
 <%= link_to 'New Ingredient',  new_ingredient_path, :class => "button", :role => "button" %>
-
+<% end %>
 </div>

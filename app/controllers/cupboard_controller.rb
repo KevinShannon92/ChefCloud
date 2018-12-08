@@ -1,5 +1,5 @@
 class CupboardController < ApplicationController
-  
+   before_action :authenticate_user! 
   def add
     # get the Id of the ingredient
     id = params[:id]
